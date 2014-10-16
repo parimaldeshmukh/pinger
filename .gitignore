@@ -1,0 +1,9 @@
+bin/
+build/
+dist/
+jsresult/
+jsTestResults/
+reports/
+.svn/
+.classpath
+.project

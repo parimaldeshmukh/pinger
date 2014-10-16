@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<meta charset="UTF-8">
+<meta http-equiv='cache-control' content='no-cache'>
+<html>
+	<head>
+		<title>Pinger</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+	</head>
+	<script type="text/javascript" src="javascript/pinger-min.js"></script>
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<img id = "busySpinner" src="resources/busy1.gif" data-bind = "visible: isBusy"/>
+			<img id="busyBackground" src="resources/rectangle_button_blank_red.png" data-bind = "visible: isBusy"/>
+			<img id="activeBackground" src="resources/rectangle_button_blank_green.png" data-bind = "click: accessResource, visible: !isBusy()"/>
+
+			<div id ="pingResult" data-bind="visible: !isBusy() && !isFailed(), click: accessResource">
+				<label data-bind="text: responseTimeText" ></label>
+				<br/>
+				<label data-bind="text: processingTimeText"></label>
+				<br/>
+				<label data-bind="text: networkLatencyText"></label>
+			</div>
+
+			<div data-bind = "click: accessResource">
+				<label id="buttonMessage" data-bind="text: buttonText, visible: !isBusy() && !isFailed()"></label>
+				<label id="errorMessage" data-bind="text: errorText, visible: !isBusy() && isFailed()"></label>
+			</div>
+		</div>
+	</body>
+</html>
